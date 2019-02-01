@@ -1,11 +1,12 @@
-<body ng-app>
-    <form >
-        <div>
-            <h3> Mail Id </h3>
-            <input type="email" ng-model="mailId" /><br />
-            <h3> Password </h3>
-            <input type="password" /><br /><br>
-            <button type="submit"> Submit </button>
+<body>
+    <div class="login-page">
+        <div class="form">
+          <form class="login-form">
+            <input type="text" placeholder="email address"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not registered? <a ui-sref="register">Create an account</a></p>
+          </form>
         </div>
-    </form>
+      </div>
 </body>

@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.use('/', router);
+
 function startMongo() {
     mongoose.set('useCreateIndex', true);
     mongoose.connect(database.databaseName, { useNewUrlParser: true });
