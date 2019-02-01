@@ -10,11 +10,7 @@ app.controller('userControl', function ($scope, userService) {
 
         }
         console.log("register dat on controller: ", user);
-        // if ($scope.password != $scope.confirmPassword) {
-        //     $scope.message = "password and confirm password not match ";
-        // } else {
             userService.registerUser(user, $scope);
-      //  }
     }
 
     $scope.login = function () {

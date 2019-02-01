@@ -4,7 +4,7 @@ app.service('userService', function ($http, $location) {
         $http({
             method: 'POST',
             url: 'http://localhost:3000/register',
-            data: data
+            data: data 
 
         }).then(
             function successCallback(response) {
@@ -35,7 +35,6 @@ this.login = function (data, $scope) {
             $scope.loginMessage = "login successfull";
         },
         function errorCallback(response) {
-
             console.log("register Unsuccessfull ");
             console.log(response);
             $scope.loginMessage = 'EmailId or Password Incorrect';

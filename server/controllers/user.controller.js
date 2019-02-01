@@ -1,10 +1,11 @@
 const userServices = require('../services/user.services');
 
-exports.registration = (req, res, next) => {
+exports.registration = (req, res) => {
     var responseResult = {}
     console.log(req.body);
     
     userServices.registration(req.body, (error, result) => {
+        console.log("in controller");
         if(error) {
             responseResult.success = false;
             responseResult.error = error;

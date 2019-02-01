@@ -7,7 +7,7 @@ var userSchema = new Schema({
     last_name: { type: String ,required:[true,"Last name is required"]},
     email: { type: String ,required:[true,"email name is required"]},
     password: { type: String ,required:[true,"password name is required"]},
-});
+},{timestamp:true});
 
 var user = mongoose.model('user', userSchema);
 
@@ -20,6 +20,7 @@ userModel.prototype.save = (data, callback) => {
     
     var newData = new user(data);
     newData.save((error, result) => {
+        console.log("save the");
         if (error) {
             callback(error);
         } else {
@@ -27,6 +28,11 @@ userModel.prototype.save = (data, callback) => {
             callback(null, result);
         }
     })
+}
+userModel.prototype.login = (data , callback) => {
+    // user.find({"email":data.email}, (err,result)=>{
+
+    // }
 }
 
 module.exports = new userModel();
