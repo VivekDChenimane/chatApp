@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-    first_name: { type: String ,required:[true,"First name is required"]},
-    last_name: { type: String ,required:[true,"Last name is required"]},
+    firstname: { type: String ,required:[true,"First name is required"]},
+    lastname: { type: String ,required:[true,"Last name is required"]},
     email: { type: String ,required:[true,"email name is required"]},
     password: { type: String ,required:[true,"password name is required"]},
 },{timestamp:true});

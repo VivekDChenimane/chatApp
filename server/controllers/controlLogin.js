@@ -1,0 +1,1 @@
+const serviceRegister = require('../services/serviceLogin');

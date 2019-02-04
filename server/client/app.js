@@ -6,12 +6,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('login', {
             url: '/login',
             templateUrl: 'templates/login.html',
-            controller: 'userControl'
+            controller: 'controlLogin'
         })
         .state('register', {
             url: '/register',
             templateUrl: 'templates/register.html',
-            controller: 'userControl'
+            controller: 'controlRegister'
         })
 
     $urlRouterProvider.otherwise('/login');
