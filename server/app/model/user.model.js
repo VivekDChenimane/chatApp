@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
-
+var bcrypt = require('bcryptjs');
+/**
+ * @description Create an instance of the schema.
+ */
 var Schema = mongoose.Schema;
-
 var userSchema = new Schema({
     firstname: { type: String ,required:[true,"First name is required"]},
     lastname: { type: String ,required:[true,"Last name is required"]},
@@ -30,9 +32,26 @@ userModel.prototype.save = (data, callback) => {
     })
 }
 userModel.prototype.login = (data , callback) => {
-    // user.find({"email":data.email}, (err,result)=>{
-
-    // }
-}
+     user.find({'email':data.email}, (err,result)=>{
+        if(err){
+            return callback(err);
+        } else if (data.length>0){
+            bcrypt.compare(data.password,result[0].password,function (err,res){
+                if(err){
+                    return callback(err);
+                }
+                else if (res){
+                    console.log(result);
+                    return callback(null,result);
+                }
+                else{
+                    return callback("Incorrect password").status(500);
+                }
+            });
+            }else{
+                return callback("Invalid User");
+            }
+        })
+     }
 
 module.exports = new userModel();
