@@ -39,7 +39,7 @@ userModel.prototype.login = (data , callback) => {
             bcrypt.compare(data.password,result[0].password,function (err,res){
                 if(err){
                     return callback(err);
-                }
+                } 
                 else if (res){
                     console.log(result);
                     return callback(null,result);
