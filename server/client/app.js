@@ -16,13 +16,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('dashboard', {
             url: '/dashboard',
             templateUrl: 'templates/dashboard.html',
-            controller: ''
+            controller: 'controlChat'
         })
     $urlRouterProvider.otherwise('/login');
 
-    app.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
-        return socketFactory({
-            ioSocket: io.connect('http://localhost:3000')
-    });
-}]);
+   
 });
+
+app.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
+    return socketFactory({
+        ioSocket: io.connect('http://localhost:3000')
+});
+}]);

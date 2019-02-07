@@ -16,11 +16,23 @@ var user = mongoose.model('user', userSchema);
 function userModel() {
 
 }
-
+function hash(data){
+var salt=bcrypt.genSaltSync(10);
+var hashpass=bcrypt.hashSync(data,salt);
+console.log(hashpass);
+return hashpass;
+}
 userModel.prototype.save = (data, callback) => {
     console.log(data);
     
-    var newData = new user(data);
+    var newData = new user({
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: data.email,
+        password: hash(data.password)
+
+
+    });
     newData.save((error, result) => {
         console.log("save the");
         if (error) {
@@ -34,8 +46,11 @@ userModel.prototype.save = (data, callback) => {
 userModel.prototype.login = (data , callback) => {
      user.find({'email':data.email}, (err,result)=>{
         if(err){
+            console.log('error in email find 49');
             return callback(err);
-        } else if (data.length>0){
+        } else if (result.length>0){
+            console.log('data in 52',data);
+            console.log('database pass',result[0]);
             bcrypt.compare(data.password,result[0].password,function (err,res){
                 if(err){
                     return callback(err);

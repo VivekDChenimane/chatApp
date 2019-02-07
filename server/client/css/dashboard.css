@@ -1,0 +1,188 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: Tahoma,sans-serif;
+    box-sizing: border-box;
+}
+.dashBody{
+    background: #1ddced;
+}
+
+.chatBox{
+
+    width: 500px;
+    min-width: 390px;
+    height: 600px;
+    background:#fff;
+    padding: 0px;
+    margin: 20px auto;
+    box-shadow:0 3px #ccc;
+    overflow-y: auto
+}
+.groupChat{
+    
+    width: 500px;
+    /* min-width: 390px; */
+    height: 50px;
+    background:rgb(2, 88, 67);
+}
+.usernamecss{
+    color: #eee;
+    font-weight: bold;
+    font-size: 30;
+    margin-left: 30px;
+    padding-top: 10px;
+
+
+}
+.chatLogs{
+    padding: 10px;
+    width: 100%;
+    /* height:450px; */
+    overflow-x: hidden;
+    /* overflow-y:au;  */
+  
+}
+.chatLogs::-webkit-scrollbar{
+    width: 10px;
+}
+.chatLogs::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background:rgba(0,0,0,-1);
+}
+.chat{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.chat .user-photo{
+    width:60px;
+    height:60px;
+    background: #ccc;
+    border-radius:50%;
+    overflow: hidden;
+}
+.chat .user-photo img {
+width:100%;
+}
+.chat .chatMsg{
+    width:80%;
+    padding: 15px;
+    margin:5px 10px 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.friend .chatMsg{
+    background:#1adda4;
+    
+} 
+.self .chatMsg{
+    background: #1ddced;
+    order: -1;
+}
+.chatForm{
+    position: fixed;
+    bottom: 5;
+    /* right: 0; */
+    width: 470px;
+    margin-top: 20px;
+    display: flex;
+    align-items:flex-start;
+}
+.chatForm textarea{
+    background: #fbfbfb;
+    width:75%;
+    height: 50px;
+    border:2px solid #eee;
+    border-radius:3px;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+    color:#333;
+
+}
+.chatForm textarea:focus{
+    background: #1ddced;
+}
+
+.chatForm textarea::-webkit-scrollbar{
+    width: 10px;
+}
+.chatForm textarea::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background:rgba(0,0,0,-1);
+}
+.chatForm button{
+    background: #1ddced;
+    padding: 5px 15px;
+    font-size: 30px;
+    color:#fff;
+    border:none;
+    margin:0 10px;
+    border-radius: 3px;
+    box-shadow:0 3px 0 #0eb2c1;
+    cursor: pointer;
+
+  -webkit-transition: background .2s ease;
+  -moz-transition: background .2s ease;
+  -o-transition: background .2s ease;
+
+}
+.chatForm button:hover{
+    background: #13c8d9;
+}
+.logoutButton{
+    background: #1adda4;
+    padding: 3px 8px;
+    font-size: 25px;
+    color:#fff;
+    border:none;
+    float: right;
+    
+    margin-right: 20px;
+    border-radius: 3px;
+    box-shadow:0 3px 0 #0eb2c1;
+    cursor: pointer;
+}
+
+/* vxfgxfsgbfbgxdf */
+.allUsers {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1ddced;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .allUsers p {
+      align:auto;
+      margin-top: 20px;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+  }
+  .allUsers h2 {
+  
+    color: black;
+  }
+  
+  .allUsers p:hover {
+    color: #f1f1f1;
+  }
+  
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+/* dvgxdfsvgxfbgfxdbg */

@@ -1,11 +1,14 @@
+// Use Express framework, which allows us to support HTTP protocol and Socket.IO
 const express = require('express');
-const app = express()
+const app = express();
+var server = require('http').Server(app);
+
 const port = 3000
 const database = require('./config/database.config');
 const mongoose = require('mongoose');
-const router = require('./routoues/routes');
+const router = require('./routes/routes');
 const bodyParser = require('body-parser');
-var io = socketIO(server);
+var io = require('socket.io')(server);
 var expressValidator = require('express-validator');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,22 +20,23 @@ app.use(function(req, res, next) {
  });
 app.use('/', router);
 app.use(express.static('client'));
+//Listen 'connection' event, which is automatically send by the web client (no need to define it)
 io.on('connection', (socket) => {
     console.log("New user connected");
-    //for listening the event
+    // Listen 'create message' event, which is sent by the web client while sending request
     socket.on('createMessage', (message) => {
-        // console.log("message: in server is ", message);
+        console.log("message: in server is ", message);
         //for saving the message to database
-        chatController.message(message, (err, data) => {
-            if (err) {
-                console.log('error---server.js 92', err);
-            }
-            else {
-                //for sending message back to client
+        // chatController.message(message, (err, data) => {
+        //     if (err) {
+        //         console.log('error---server.js 30', err);
+        //     }
+        //     else {
+                //Emit event to user. The second parameter contains the message.
                 io.emit('newMessageSingle', message);
-            }
+        //     }
 
-        })
+        // })
         socket.on('disconnect', () => {
             console.log("User was disconnected");
         });
@@ -51,7 +55,7 @@ function startMongo() {
         }
     })
 }
-app.listen(port, () => {
+server.listen(port, () => {
     startMongo()
     console.log(`Example app listening on port ${port}!`)
 })
