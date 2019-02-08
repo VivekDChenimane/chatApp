@@ -1,8 +1,20 @@
+/************************************************************
+ * 
+ * Purpose      :   Application starts from here.
+ * 
+ * @description
+ * 
+ * @file        :   server.js
+ * @overview    :   import all the required packages here.
+ * @author      :   Vivek D Chenimane <vivekdchenimane@gmail.com>
+ * @version     :   1.0
+ * @since       :   28-01-2019
+ * 
+ * **********************************************************/
 // Use Express framework, which allows us to support HTTP protocol and Socket.IO
 const express = require('express');
 const app = express();
 var server = require('http').Server(app);
-
 const port = 3000
 const database = require('./config/database.config');
 const mongoose = require('mongoose');
@@ -26,17 +38,7 @@ io.on('connection', (socket) => {
     // Listen 'create message' event, which is sent by the web client while sending request
     socket.on('createMessage', (message) => {
         console.log("message: in server is ", message);
-        //for saving the message to database
-        // chatController.message(message, (err, data) => {
-        //     if (err) {
-        //         console.log('error---server.js 30', err);
-        //     }
-        //     else {
-                //Emit event to user. The second parameter contains the message.
                 io.emit('newMessageSingle', message);
-        //     }
-
-        // })
         socket.on('disconnect', () => {
             console.log("User was disconnected");
         });

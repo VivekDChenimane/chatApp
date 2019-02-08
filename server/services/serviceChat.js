@@ -2,7 +2,7 @@ const chatModel = require('../app/model/chat.model');
 exports.addMessage = (req, callback) => {
     console.log("req on service");
     chatModel.addMessage(req, (err, data) => {
-        
+
         if (err) {
             console.log("err on service file", err);
             //returning err
@@ -16,12 +16,22 @@ exports.addMessage = (req, callback) => {
     })
 
 }
-exports.getUserMsg = (req, callback) => {
-    chatModel.getUserMsg(req, (err, data) => {
+// exports.getUserMsg = (req, callback) => {
+//     chatModel.getUserMsg(req, (err, data) => {
+//         if (err) {
+//             return callback(err);
+//         } else {
+//             return callback(null, data);
+//         }
+//     })
+// }
+exports.getAllUser = (req, callback) => {
+    chatModel.getAllUser(req, (err, data) => {
         if (err) {
             return callback(err);
-        } else {
-            return callback(null, data);
+        }
+        else{
+            return callback(null,data);
         }
     })
-}  
+}

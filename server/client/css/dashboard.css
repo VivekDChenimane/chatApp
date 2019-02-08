@@ -43,13 +43,6 @@
     /* overflow-y:au;  */
   
 }
-.chatLogs::-webkit-scrollbar{
-    width: 10px;
-}
-.chatLogs::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    background:rgba(0,0,0,-1);
-}
 .chat{
     display: flex;
     flex-flow: row wrap;
@@ -126,9 +119,6 @@ width:100%;
     box-shadow:0 3px 0 #0eb2c1;
     cursor: pointer;
 
-  -webkit-transition: background .2s ease;
-  -moz-transition: background .2s ease;
-  -o-transition: background .2s ease;
 
 }
 .chatForm button:hover{
@@ -184,5 +174,8 @@ width:100%;
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
   }
-  
+  .buttonSend{
+      position: relative;
+      vertical-align: bottom;
+  }
 /* dvgxdfsvgxfbgfxdbg */

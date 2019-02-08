@@ -5,17 +5,23 @@ app.controller('controlChat', function ($scope, SocketService, $state, serviceCh
     $scope.currUser = localStorage.getItem('userid');
     $scope.recieverUserName = localStorage.getItem('rusername');
 
-    SocketService.on('newMessageSingle', (message) => {
+    SocketService.on('newMessageSingle', message => {
        
-            console.log('message in client sidee', message);
+            console.log('message in client side', message);
                 $scope.allUserArr.push(message);
+                $scope.message=message;
    
     })
     $scope.sendMsg = function () {
     
-        msg='hello';
+        msg='hello'; 
         $scope.message = '';
+        console.log("Emitting the message");
         SocketService.emit('createMessage', msg);
+    }
+    $scope.logout = function(){
+        localStorage.clear();
+        $state.go('login');
     }
   
 });

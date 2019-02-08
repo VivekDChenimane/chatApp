@@ -1,3 +1,16 @@
+/************************************************************
+ * 
+ * Purpose      :   To validate and control the login functionality.
+ * 
+ * @description
+ * 
+ * @file        :   controlLogin.js
+ * @overview    :   Login and generate Token.
+ * @author      :   Vivek D Chenimane <vivekdchenimane@gmail.com>
+ * @version     :   1.0
+ * @since       :   28-01-2019
+ * 
+ * **********************************************************/
 const serviceLogin = require('../services/serviceLogin');
 exports.login = (req, res) => {
     req.checkBody('email', 'Email is not valid').isEmail();

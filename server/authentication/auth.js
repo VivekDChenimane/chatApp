@@ -1,3 +1,16 @@
+/************************************************************
+ * 
+ * Purpose      :   To authentic the JWT token.
+ * 
+ * @description
+ * 
+ * @file        :   auth.js
+ * @overview    :   To authenticate the jwt token sent by user during request.
+ * @author      :   Vivek D Chenimane <vivekdchenimane@gmail.com>
+ * @version     :   1.0
+ * @since       :   28-01-2019
+ * 
+ * **********************************************************/
 var jwt = require('jsonwebtoken');
 var secret = "adcd";
 var auth = function (req, res, next) {

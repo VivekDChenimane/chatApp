@@ -10,13 +10,27 @@ module.exports.message = (req, callback) => {
     })
 
 }
-module.exports.getUserMsg = (req, res) => {
-    chatServices.getUserMsg((err, data) => {
+// module.exports.getUserMsg = (req, res) => {
+//     chatServices.getUserMsg((err, data) => {
+//         if (err) {
+//             return res.status(500).send({
+//                 message: err
+//             });
+//         } else {
+//             return res.status(200).send({
+//                 message: data
+//             });
+//         }
+//     })
+// }
+module.exports.getAllUser = (req, res) => {
+    chatServices.getAllUser((err, data) => {
         if (err) {
             return res.status(500).send({
                 message: err
             });
-        } else {
+        }
+        else{
             return res.status(200).send({
                 message: data
             });

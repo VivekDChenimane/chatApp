@@ -60,7 +60,7 @@ userModel.prototype.login = (data , callback) => {
                     return callback(null,result);
                 }
                 else{
-                    return callback("Incorrect password").status(500);
+                    return callback("Incorrect password");
                 }
             });
             }else{

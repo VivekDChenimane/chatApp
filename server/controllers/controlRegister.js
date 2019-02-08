@@ -1,5 +1,17 @@
+/************************************************************
+ * 
+ * Purpose      :   To validate and control the login functionality.
+ * 
+ * @description
+ * 
+ * @file        :   controlLogin.js
+ * @overview    :   Login and generate Token.
+ * @author      :   Vivek D Chenimane <vivekdchenimane@gmail.com>
+ * @version     :   1.0
+ * @since       :   28-01-2019
+ * 
+ * **********************************************************/
 const serviceRegister = require('../services/serviceRegister');
-
 exports.registration = (req, res) => {
     req.checkBody('firstname', 'First name is invalid').isLength({ min: 3 });
     req.checkBody('email', 'Email is invalid').isEmail();
