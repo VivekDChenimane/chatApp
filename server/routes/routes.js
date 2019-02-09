@@ -18,5 +18,5 @@ const controlRegister = require('../controllers/controlRegister');
 const controlLogin = require('../controllers/controlLogin');
 router.post('/registration', controlRegister.registration);
 router.post('/login', controlLogin.login);
-//router.use('/auth', authenticRoutes);
+router.use('/auth',authenticRoutes);
 module.exports = router; 

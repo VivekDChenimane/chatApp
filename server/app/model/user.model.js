@@ -69,4 +69,14 @@ userModel.prototype.login = (data , callback) => {
         })
      }
 
+     userModel.prototype.getUserMsg = (callback) => {
+        chat.find({}, (err, data) => {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, data);
+            }
+        })
+    }
+    
 module.exports = new userModel();

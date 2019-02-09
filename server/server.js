@@ -15,14 +15,15 @@
 const express = require('express');
 const app = express();
 var server = require('http').Server(app);
-const port = 3000
+const port = 3000;
+const controlChat = require('./controllers/controlChat');
 const database = require('./config/database.config');
 const mongoose = require('mongoose');
 const router = require('./routes/routes');
 const bodyParser = require('body-parser');
 var io = require('socket.io')(server);
 var expressValidator = require('express-validator');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(function(req, res, next) {
@@ -37,8 +38,16 @@ io.on('connection', (socket) => {
     console.log("New user connected");
     // Listen 'create message' event, which is sent by the web client while sending request
     socket.on('createMessage', (message) => {
-        console.log("message: in server is ", message);
+        controlChat.message(message, (err, data) => {
+            if (err) {
+                console.log('error---server.js 92', err);
+            }
+            else {
+                //for sending message back to client
                 io.emit('newMessageSingle', message);
+            }
+
+})
         socket.on('disconnect', () => {
             console.log("User was disconnected");
         });

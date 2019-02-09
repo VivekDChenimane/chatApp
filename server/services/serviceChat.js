@@ -16,15 +16,15 @@ exports.addMessage = (req, callback) => {
     })
 
 }
-// exports.getUserMsg = (req, callback) => {
-//     chatModel.getUserMsg(req, (err, data) => {
-//         if (err) {
-//             return callback(err);
-//         } else {
-//             return callback(null, data);
-//         }
-//     })
-// }
+exports.getUserMsg = (req, callback) => {
+    chatModel.getUserMsg(req, (err, data) => {
+        if (err) {
+            return callback(err);
+        } else {
+            return callback(null, data);
+        }
+    })
+}
 exports.getAllUser = (req, callback) => {
     chatModel.getAllUser(req, (err, data) => {
         if (err) {
