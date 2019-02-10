@@ -13,8 +13,9 @@
  * **********************************************************/
 var express = require('express');
 var router = express.Router();
-var users = require('../controllers/controlChat');
+var chat = require('../controllers/controlChat');
+var users = require('../controllers/controlLogin');
 var auth = require('../authentication/auth');
 router.get('/getAllUser', auth, users.getAllUser);
-router.get('/getUserMsg',auth,users.getUserMsg);
+router.get('/getUserMsg',auth,chat.getUserMsg);
 module.exports=router;

@@ -25,13 +25,3 @@ exports.getUserMsg = (req, callback) => {
         }
     })
 }
-exports.getAllUser = (req, callback) => {
-    chatModel.getAllUser(req, (err, data) => {
-        if (err) {
-            return callback(err);
-        }
-        else{
-            return callback(null,data);
-        }
-    })
-}

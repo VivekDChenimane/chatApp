@@ -1,26 +1,34 @@
-
-<body class="dashBody" ng-controller="chatControl">
-    <button type="button" class="logoutButton" ng-click="logout()">Logout</button>
+<body class="dashBody" ng-controller="controlChat">
     <div class="allUsers">
-        <center>
-            <h2> All Users </h2>
-        </center>
-        <hr>
-        <p ng-repeat="x in allUser" ng-click="person(x)" ng-show="currUserName != x.firstname">
-            {{x.firstname}}</p>
-    </div>
-    <div class="main">
-    </div>
-    <div class="chatBox">
-        <div class="groupChat">
-               
-            <p class="usernamecss">Welcome {{currUserName}}</p>
+            <center>
+                <h2> All Users </h2>
+            </center>
+            <hr>
+            <p ng-repeat="x in allUser" ng-click="person(x)" ng-show="currUserName != x.firstname">
+                {{x.firstname}}</p>
         </div>
-        {{message}}
-        <div class="buttonSend"><button ng-click="sendMsg()">sendMsg</button></div>
+<button type="button" class="logoutButton" ng-click="logout()">Logout</button>
+<div class="main">
+</div>
+<div class="chatBox">
+    <div class="groupChat">
+        <p class="usernamecss"> {{recieverUserName}}</p>
     </div>
-    
-    </script>
-</body>
+    <div class="recievername"></div>
+    <div class="chatLogs" ng-repeat="chat in allUserArr">
+        <div class="chat friend" ng-show="currUser != chat.senderUserId">
+            <!-- <div class="user-photo"><img src="../assests/img/cartoon1"> </div> -->
+            <p class="chatMsg">From {{chat.senderName}}:- {{chat.message}}</p>
+        </div>
+        <div class="chat self" ng-show="currUser == chat.senderUserId">
+            <!-- <div class="user-photo"> <img src="../assests/img/cartoon2"></div> -->
+            <p class="chatMsg"> {{chat.message}}</p>
+        </div>
+    </div>
+    <div class="chatForm">
+        <textarea ng-model='message'></textarea>
+        <button ng-click="sendMsg()">Send</button>
+    </div>
+</div>
 
-</html>
+</body>

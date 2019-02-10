@@ -12,6 +12,7 @@
  * 
  * **********************************************************/
 const serviceLogin = require('../services/serviceLogin');
+const jwt = require('jsonwebtoken');
 exports.login = (req, res) => {
     req.checkBody('email', 'Email is not valid').isEmail();
     req.checkBody('password', 'password is not valid').isLength({ min: 6 });
@@ -31,17 +32,17 @@ exports.login = (req, res) => {
                     message: err
                 });
             } else {
-                // var token = jwt.sign({ id: data[0]._id }, secret, { expiresIn: '2h' });
+                var token = jwt.sign({ id: data._id }, secret, { expiresIn: '2h' });
                 return res.status(200).send({
-                    message: data
-                    // "token": token
+                    message: data,
+                     "token": token
                 });
             }
         })
     }
 }
 module.exports.getAllUser = (req, res) => {
-    serviceChat.getAllUser((err, data) => {
+    serviceLogin.getAllUser((err, data) => {
         if (err) {
             return res.status(500).send({
                 message: err
