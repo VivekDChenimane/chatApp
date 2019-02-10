@@ -1,4 +1,5 @@
 const chatServices = require('../services/serviceChat');
+
 module.exports.message = (req, callback) => {
     chatServices.addMessage(req, (err, data) => {
         if (err) {

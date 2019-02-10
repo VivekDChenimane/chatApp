@@ -22,7 +22,8 @@ exports.registration = (req, res) => {
         response.success = false;
         response.error = errors;
         return res.status(422).send(response);
-    } else {
+    } 
+    else {
         serviceRegister.registration(req.body, (error, result) => {
             if (error) {
                 responseResult.success = false;

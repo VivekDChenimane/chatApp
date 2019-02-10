@@ -18,4 +18,4 @@ var users = require('../controllers/controlLogin');
 var auth = require('../authentication/auth');
 router.get('/getAllUser', auth, users.getAllUser);
 router.get('/getUserMsg',auth,chat.getUserMsg);
-module.exports=router;
+module.exports=router; 
